@@ -1,2 +1,10 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_is_type_production,access_is_type_production,model_is_type_production,base.group_user,1,0,0,0 
+access_is_langue,access_is_langue,model_is_langue,base.group_user,1,0,0,0 
+
+access_is_type_production_manager,access_is_type_production_manager,model_is_type_production,sales_team.group_sale_manager,1,1,1,1
+access_is_langue_manager,access_is_langue_manager,model_is_langue,sales_team.group_sale_manager,1,1,1,1
+
+
+
 

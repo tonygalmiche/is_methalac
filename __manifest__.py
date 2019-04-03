@@ -18,6 +18,7 @@ InfoSaône - Module Odoo 12 pour Methalac
     ],
     'data' : [
         'security/ir.model.access.csv',
+        'views/res_partner_views.xml',
         'views/menu.xml',
     ],
     'installable': True,
