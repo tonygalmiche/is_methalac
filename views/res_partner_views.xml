@@ -18,7 +18,7 @@
                 <field name="tz"/>
             </field>
             <page name="internal_notes" position="replace">
-                <page name="commentaires" string="Commentaires">
+                <page name="internal_notes" string="Commentaires">
                     <group>
                         <field name="is_comment_commande"  attrs="{'invisible': [('supplier','=', False)]}"/>
                         <field name="is_comment_livraison" attrs="{'invisible': [('supplier','=', False)]}"/>
