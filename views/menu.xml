@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!--
+        <menuitem   
+            name="Methalac"  
+            id="is_methalac_main_menu" 
+            sequence="90"
+        />
+        -->
+    </data>
+</odoo>
