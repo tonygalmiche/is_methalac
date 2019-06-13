@@ -10,6 +10,7 @@
                 <field name="is_forme_juridique"      attrs="{'invisible': [('is_company','=', False)]}"/>
                 <field name="is_type_production_ids" widget="many2many_tags"/>
                 <field name="is_num_client"      attrs="{'invisible': [('supplier','=', False)]}"/>
+                <field name="is_code_client"     attrs="{'invisible': [('customer','=', False)]}"/>
                 <field name="is_date_briefing"   attrs="{'invisible': [('supplier','=', False)]}"/>
                 <field name="is_coordonnee_gps"/>
                 <field name="is_coordonnee_gps_metha" attrs="{'invisible': [('customer','=', False)]}"/>
