@@ -21,6 +21,8 @@ class IsLangue(models.Model):
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+
+    is_forme_juridique      = fields.Char(u"Forme juridique")
     is_type_production_ids  = fields.Many2many('is.type.production', 'res_partner_type_production_rel', 'partner_id', 'type_production_id', u'Type de production')
     is_num_client           = fields.Char(u"Notre numéro client")
     is_date_briefing        = fields.Date(u"Date briefing facturation")

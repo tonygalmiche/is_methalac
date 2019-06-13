@@ -7,6 +7,7 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <field name="vat" position="after">
+                <field name="is_forme_juridique"      attrs="{'invisible': [('is_company','=', False)]}"/>
                 <field name="is_type_production_ids" widget="many2many_tags"/>
                 <field name="is_num_client"      attrs="{'invisible': [('supplier','=', False)]}"/>
                 <field name="is_date_briefing"   attrs="{'invisible': [('supplier','=', False)]}"/>
