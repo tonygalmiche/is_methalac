@@ -1,22 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
-
-
-
-        
         <template id="is_report_invoice_document" name="is_report_invoice_document" inherit_id="account.report_invoice_document">
+            <xpath expr="//t[@t-set='address']" position="replace">
+                <style>
+                    .destinataire{
+                        border:1px solid black;
+                        padding:0.5em;
+                    }
+                </style>
+                <t t-set="address">
+                    <div class="destinataire">
+                        <address t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                        <div t-if="o.partner_id.vat" class="mt16"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/></div>
+                    </div>
+                </t>
+            </xpath>
             <xpath expr="//div[hasclass('page')]" position="replace">
                 <style>
                     .page{
                         font-size:10pt;
+                    }
+                    h2{
+                        font-size:15pt;
+                        font-weight: bold;
                     }
                     .description{
                         line-height: 1px;
                         font-size:9pt;
                         margin:0;
                         padding:0;
+                    }
+                    .table-sm table{
+                        border-left:1px solid black;
+                        border-right:1px solid black;
+                        border-top:1px solid black;
+                        border-bottom:1px solid black;
+                    }
+                    .table-sm th{
+                        background-color:Gainsboro;
+                        border-left:1px solid black;
+                        border-right:1px solid black;
+                        border-top:1px solid black;
+                        border-bottom:1px solid black;
+                    }
+                    .table-sm td{
+                        border-left:1px solid black;
+                        border-right:1px solid black;
+                        border-top:1px solid black;
+                        border-bottom:1px solid black;
+                    }
+                    .table-sm tr{
                     }
                 </style>
                 <div class="page">
@@ -29,14 +63,27 @@
                         <span t-if="o.type == 'in_invoice'">Vendor Bill</span>
                         <span t-field="o.number"/>
                     </h2>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Code client</th>
+                                <th class="text-center">Date d'échéance</th>
+                                <th class="text-center">Date Facture</th>
+                            </tr>
+                        </thead>
+                        <tbody class="invoice_tbody">
+                            <tr>
+                                <td><p class="m-0 text-center" t-field="o.partner_id.is_code_client"/></td>
+                                <td><p class="m-0 text-center" t-field="o.date_due"/></td>
+                                <td><p class="m-0 text-center" t-field="o.date_invoice"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <!--
 
                     <div id="informations" class="row mt32 mb32">
-                        <!--
-                        <div class="col-auto mw-100 mb-2" t-if="o.name" name="description">
-                            <strong>Description:</strong>
-                            <p class="m-0" t-field="o.name"/>
-                        </div>
-                        -->
                         <div class="col-auto mw-100 mb-2">
                             <strong>Code client:</strong>
                             <p class="m-0" t-field="o.partner_id.is_code_client"/>
@@ -49,34 +96,11 @@
                             <strong>Date Facture:</strong>
                             <p class="m-0" t-field="o.date_invoice"/>
                         </div>
-
-
-                        <!--
-                        <div class="col-auto mw-100 mb-2" t-if="o.partner_id.vat" name="div_vat">
-                            <strong>N°TVA client:</strong>
-                            <p class="m-0" t-field="o.partner_id.vat"/>
-                        </div>
-                        -->
-
-
-                        <!--
-                        <div class="col-auto mw-100 mb-2" t-if="o.origin" name="origin">
-                            <strong>Origine:</strong>
-                            <p class="m-0" t-field="o.origin"/>
-                        </div>
-                        <div class="col-auto mw-100 mb-2" t-if="o.partner_id.ref" name="customer_code">
-                            <strong>Ref Client:</strong>
-                            <p class="m-0" t-field="o.partner_id.ref"/>
-                        </div>
-                        <div name="reference" class="col-auto mw-100 mb-2" t-if="o.reference">
-                            <strong>Référence:</strong>
-                            <p class="m-0" t-field="o.reference"/>
-                        </div>
-                        -->
                     </div>
- 
-                    <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
+                    -->
 
+
+                    <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
                     <table class="table table-sm o_main_table" name="invoice_line_table">
                         <thead>
                             <tr>
