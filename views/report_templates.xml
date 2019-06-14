@@ -18,6 +18,8 @@
                         <t t-if="company.street2"><span t-field="company.street2"/></t><br />
                         <t t-if="company.zip"><span t-field="company.zip"/> - </t><t t-if="company.city"><span t-field="company.city"/></t>
                         <t t-if="company.country_id"><span t-field="company.country_id.name"/><br /></t>
+                        <t t-if="company.phone">Tél. : <span t-field="company.phone"/></t> - 
+                        <t t-if="company.email">Courriel : <span t-field="company.email"/><br /></t>
                     </div>
                 </div>
             </div>
