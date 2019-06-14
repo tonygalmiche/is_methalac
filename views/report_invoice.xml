@@ -8,8 +8,17 @@
         
         <template id="is_report_invoice_document" name="is_report_invoice_document" inherit_id="account.report_invoice_document">
             <xpath expr="//div[hasclass('page')]" position="replace">
-
-
+                <style>
+                    .page{
+                        font-size:10pt;
+                    }
+                    .description{
+                        line-height: 1px;
+                        font-size:9pt;
+                        margin:0;
+                        padding:0;
+                    }
+                </style>
                 <div class="page">
                     <h2>
                         <span t-if="o.type == 'out_invoice' and o.state in ('open', 'in_payment', 'paid')">Facture</span>
@@ -40,6 +49,16 @@
                             <strong>Date Facture:</strong>
                             <p class="m-0" t-field="o.date_invoice"/>
                         </div>
+
+
+                        <!--
+                        <div class="col-auto mw-100 mb-2" t-if="o.partner_id.vat" name="div_vat">
+                            <strong>N°TVA client:</strong>
+                            <p class="m-0" t-field="o.partner_id.vat"/>
+                        </div>
+                        -->
+
+
                         <!--
                         <div class="col-auto mw-100 mb-2" t-if="o.origin" name="origin">
                             <strong>Origine:</strong>
@@ -89,7 +108,10 @@
 
                                 <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
                                     <t t-if="not line.display_type" name="account_invoice_line_accountable">
-                                        <td name="account_invoice_line_name"><span style="font-size:10pt" t-field="line.name"/></td>
+
+                                        <td name="account_invoice_line_name"><span class="description" t-field="line.name"/></td>
+
+
                                         <td class="d-none"><span t-field="line.origin"/></td>
                                         <td class="text-right">
                                             <span t-field="line.quantity"/>
@@ -184,6 +206,14 @@
                         Please use the following communication for your payment : <b><span t-field="o.reference"/></b>
                     </p>
                     -->
+
+                    <p t-if="o.partner_bank_id">
+                        Paiement par virement sur le compte : <br />
+                        IBAN : <span t-field="o.partner_bank_id.acc_number"/> - BIC : <span t-field="o.partner_bank_id.bank_id.bic"/>
+                    </p>
+
+
+
                     <p t-if="o.comment" name="comment">
                         <span t-field="o.comment"/>
                     </p>

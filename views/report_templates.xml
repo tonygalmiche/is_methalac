@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-
-
-    
     <template id="is_external_layout_standard" name="is_external_layout_standard" inherit_id="web.external_layout_standard">
-
-
-
-        <!--
         <xpath expr="//div[hasclass('header')]" position="replace">
             <div class="header">
+                <style>
+                    .emetteur{
+                        font-size:10pt;
+                    }
+                </style>
                 <div class="row">
                     <div class="col-3 mb4">
-                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 30mm;" alt="Logo"/>
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
                     </div>
-                    <div class="col-9 text-right">
+                    <div class="col-9 text-right emetteur">
+                        <t t-if="company.name"><span t-field="company.name"/><br /></t>
+                        <t t-if="company.street"><span t-field="company.street"/></t>
+                        <t t-if="company.street2"><span t-field="company.street2"/></t><br />
+                        <t t-if="company.zip"><span t-field="company.zip"/> - </t><t t-if="company.city"><span t-field="company.city"/></t>
+                        <t t-if="company.country_id"><span t-field="company.country_id.name"/><br /></t>
                     </div>
                 </div>
             </div>
         </xpath>
-        -->
-
-
-        <!--
-        <xpath expr="//div[hasclass('o_report_layout_standard')]" position="replace">
-
-            <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id">
-                <t t-raw="0"/>
-            </div>
-        </xpath>
-        -->
-
-        
         <xpath expr="//div[hasclass('footer')]" position="replace">
             <div class="footer o_standard_footer">
                 <div class="text-center" style="border-top: 1px solid black;font-size:10pt">
@@ -45,7 +34,5 @@
                 </div>
             </div>
         </xpath>
-        
     </template>
-
 </odoo>
