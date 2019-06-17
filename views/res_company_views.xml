@@ -9,6 +9,9 @@
                 <field name="company_registry" position="after">
                     <field name="is_capital"/>
                 </field>
+                <field name="email" position="after">
+                    <field name="is_courriel_facturation_fournisseur"/>
+                </field>
             </field>
         </record>
     </data>
