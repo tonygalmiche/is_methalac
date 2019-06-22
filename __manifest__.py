@@ -26,6 +26,7 @@ InfoSaône - Module Odoo 12 pour Methalac
         'views/report_templates.xml',
         'views/report_invoice.xml',
         'views/menu.xml',
+        'report/purchase_order_templates.xml',
     ],
     'installable': True,
     'application': True,
