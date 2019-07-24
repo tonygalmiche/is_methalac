@@ -8,6 +8,8 @@
             <field name="partner_id" position="after">
                 <field name="is_adresse_livraison_id"/>
                 <field name="is_client_final_id"/>
+                <field name="is_contact_client_id"/>
+                <field name="is_contact_monteur_id"/>
             </field>
         </field>
     </record>
@@ -30,6 +32,8 @@
             <field name="partner_id" position="after">
                 <field name="is_adresse_livraison_id"/>
                 <field name="is_client_final_id"/>
+                <field name="is_contact_client_id"/>
+                <field name="is_contact_monteur_id"/>
             </field>
         </field>
     </record>
