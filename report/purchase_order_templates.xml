@@ -106,6 +106,7 @@
                                 <th class="text-center">Notre référence</th>
                                 <th t-if="o.partner_ref" class="text-center">Votre devis</th>
                                 <th class="text-center">Date de commande</th>
+                                <th t-if="o.is_client_final_id" class="text-center">Réf client</th>
                             </tr>
                         </thead>
                         <tbody class="invoice_tbody">
@@ -113,6 +114,7 @@
                                 <td><p class="m-0 text-center" t-field="o.name"/></td>
                                 <td  t-if="o.partner_ref"><p class="m-0 text-center" t-field="o.partner_ref"/></td>
                                 <td><p class="m-0 text-center" t-esc="o.date_order.strftime('%d/%m/%Y')"/></td>
+                                <td  t-if="o.is_client_final_id"><p class="m-0 text-center" t-field="o.is_client_final_id.name"/></td>
                             </tr>
                         </tbody>
                     </table>
