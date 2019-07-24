@@ -5,12 +5,12 @@
             <div class="header">
                 <style>
                     .emetteur{
-                        font-size:9pt;
+                        font-size:10pt;
                     }
                 </style>
                 <div class="row">
                     <div class="col-3 mb4">
-                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 25mm;" alt="Logo"/>
                     </div>
                     <div class="col-9 text-right emetteur">
                         <t t-if="company.name"><span t-field="company.name"/><br /></t>

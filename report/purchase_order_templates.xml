@@ -20,6 +20,7 @@
                 </style>
                 <t t-set="address">
                     <div style="height:10mm"/>
+                    <strong>Destinataire : </strong>
                     <div class="destinataire">
                         <address t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
                         <div t-if="o.partner_id.vat" class="mt16"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/></div>
@@ -44,11 +45,11 @@
                             <div>GPS : <span t-field="o.is_adresse_livraison_id.is_coordonnee_gps"/></div>
                         </t>
                         <div>Contacts :</div>
-                        <t t-if="o.is_contact_client_id">
-                            <div><span t-field="o.is_contact_client_id.name"/> <span t-field="o.is_contact_client_id.mobile"/></div>
-                        </t>
                         <t t-if="o.is_contact_monteur_id">
                             <div><span t-field="o.is_contact_monteur_id.name"/> <span t-field="o.is_contact_monteur_id.mobile"/></div>
+                        </t>
+                        <t t-if="o.is_contact_client_id">
+                            <div><span t-field="o.is_contact_client_id.name"/> <span t-field="o.is_contact_client_id.mobile"/></div>
                         </t>
                     </div>
                 </t>
