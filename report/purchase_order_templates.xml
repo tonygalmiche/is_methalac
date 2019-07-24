@@ -98,7 +98,7 @@
                 </style>
                 <div class="page">
                     <div class="oe_structure"/><br />
-                    <h2>Commande n°<span t-field="o.name"/></h2>
+                    <h2>Commande n°<span t-field="o.name"/><t t-if="o.is_client_final_id.is_num_client">-<span t-field="o.is_client_final_id.is_num_client"/></t></h2>
 
                     <table class="table table-sm" style="width:auto;">
                         <thead>
@@ -111,7 +111,11 @@
                         </thead>
                         <tbody class="invoice_tbody">
                             <tr>
-                                <td><p class="m-0 text-center" t-field="o.name"/></td>
+                                <td>
+                                    <p class="m-0 text-center">
+                                        <span t-field="o.name"/><t t-if="o.is_client_final_id.is_num_client">-<span t-field="o.is_client_final_id.is_num_client"/></t>
+                                    </p>
+                                </td>
                                 <td  t-if="o.partner_ref"><p class="m-0 text-center" t-field="o.partner_ref"/></td>
                                 <td><p class="m-0 text-center" t-esc="o.date_order.strftime('%d/%m/%Y')"/></td>
                                 <td  t-if="o.is_client_final_id"><p class="m-0 text-center" t-field="o.is_client_final_id.name"/></td>
