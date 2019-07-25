@@ -26,6 +26,7 @@ class ResPartner(models.Model):
     is_type_production_ids  = fields.Many2many('is.type.production', 'res_partner_type_production_rel', 'partner_id', 'type_production_id', u'Type de production')
     is_num_client           = fields.Char(u"Notre numéro client")
     is_code_client          = fields.Char(u"Code client", help=u"Code comptable du client")
+    is_location_dest_id     = fields.Many2one('stock.location', "Emplacement de destination", domain=[('usage','=','internal')])
     is_date_briefing        = fields.Date(u"Date briefing facturation")
     is_coordonnee_gps       = fields.Char(u"Coordonnées GPS")
     is_coordonnee_gps_metha = fields.Char(u"Coordonnées GPS site de métha")

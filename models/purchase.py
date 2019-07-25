@@ -29,9 +29,7 @@ class PurchaseOrder(models.Model):
                     picking = pickings[0]
                 moves = order.order_line._create_stock_moves(picking)
                 if order.is_location_dest_id:
-                    print(moves)
                     for move in moves:
-                        print(move,move.location_dest_id)
                         move.location_dest_id = order.is_location_dest_id.id
                 moves = moves.filtered(lambda x: x.state not in ('done', 'cancel'))._action_confirm()
                 seq = 0
@@ -43,4 +41,13 @@ class PurchaseOrder(models.Model):
                     values={'self': picking, 'origin': order},
                     subtype_id=self.env.ref('mail.mt_note').id)
         return True
+
+
+    @api.onchange('is_adresse_livraison_id')
+    def onchange_product(self):
+        if self.is_adresse_livraison_id.is_location_dest_id:
+            self.is_location_dest_id=self.is_adresse_livraison_id.is_location_dest_id.id
+
+
+
 

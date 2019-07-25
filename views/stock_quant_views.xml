@@ -25,4 +25,20 @@
     </record>
 
 
+
+    <!-- Créer transfert de stock -->
+    <record id="creer_stock_picking_action_server" model="ir.actions.server">
+        <field name="name">Créer transfert de stock</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="stock.model_stock_quant"/>
+        <field name="binding_model_id" ref="stock.model_stock_quant"/>
+        <field name="code">
+records.creer_stock_picking()
+        </field>
+    </record>
+
+
+
+
 </odoo>

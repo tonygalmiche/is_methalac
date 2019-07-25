@@ -30,9 +30,16 @@
         <menuitem
             id="is_stock_quant_menu"
             name="Stock détaillé"
-            parent="stock.menu_stock_root"
-            sequence="10"
+            parent="stock.menu_stock_warehouse_mgmt"
+            sequence="1"
             action="is_stock_quant_action"
+        />
+        <menuitem
+            id="is_stock_picking_action"
+            name="Transferts brouillon"
+            parent="stock.menu_stock_warehouse_mgmt"
+            sequence="2"
+            action="is_stock_picking_action"
         />
 
 
