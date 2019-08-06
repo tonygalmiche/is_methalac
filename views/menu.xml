@@ -34,13 +34,16 @@
             sequence="1"
             action="is_stock_quant_action"
         />
+
+
         <menuitem
-            id="is_stock_picking_action"
+            id="is_stock_picking_menu"
             name="Transferts brouillon"
             parent="stock.menu_stock_warehouse_mgmt"
             sequence="2"
             action="is_stock_picking_action"
         />
+
 
 
     </data>

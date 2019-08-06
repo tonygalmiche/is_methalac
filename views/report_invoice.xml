@@ -61,9 +61,9 @@
                         <span t-if="o.type == 'out_invoice' and o.state in ('open', 'in_payment', 'paid')">Facture</span>
                         <span t-if="o.type == 'out_invoice' and o.state == 'draft'">Facture brouillon</span>
                         <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Facture annulée</span>
-                        <span t-if="o.type == 'out_refund'">Credit Note</span>
-                        <span t-if="o.type == 'in_refund'">Vendor Credit Note</span>
-                        <span t-if="o.type == 'in_invoice'">Vendor Bill</span>
+                        <span t-if="o.type == 'out_refund'">Avoir</span>
+                        <span t-if="o.type == 'in_refund'">Avoir</span>
+                        <span t-if="o.type == 'in_invoice'">Avoir</span>
                         <span t-field="o.number"/>
                     </h2>
                     <table class="table table-sm">

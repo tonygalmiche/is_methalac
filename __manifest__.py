@@ -12,6 +12,7 @@ InfoSaône - Module Odoo 12 pour Methalac
     'website'    : 'http://www.infosaone.com',
     'depends'    : [
         'base',
+        'sale',
         'document',
         'product',
         'purchase',
