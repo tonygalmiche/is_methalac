@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!--
     <record  id="is_stock_picking_action" model="ir.actions.act_window">
         <field name="name">Transferts brouillon</field>
         <field name="res_model">stock.picking</field>
@@ -9,5 +8,4 @@
         <field name="view_mode">tree,form</field>
         <field name="domain">[("state", "=", "draft")]</field>
     </record>
-    -->
 </odoo>

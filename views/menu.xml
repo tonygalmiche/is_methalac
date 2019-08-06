@@ -35,7 +35,6 @@
             action="is_stock_quant_action"
         />
 
-<!--
         <menuitem
             id="is_stock_picking_menu"
             name="Transferts brouillon"
@@ -43,7 +42,6 @@
             sequence="2"
             action="is_stock_picking_action"
         />
--->
 
 
     </data>
